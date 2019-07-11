@@ -1,3 +1,13 @@
+/*
+█████████████████████████
+█────███────██────██────█
+█─██──██─██─██─██─██─██─█
+█────███─██─██────██─████
+█─██──██─██─██─█████─██─█
+█────███────██─█████────█
+█████████████████████████
+ */
+
 name := """BoPC"""
 organization := "Vyacheslav"
 
@@ -7,11 +17,12 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.12.7"
 
-libraryDependencies += guice
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.2" % Test
-
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "Vyacheslav.controllers._"
-
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "Vyacheslav.binders._"
+libraryDependencies ++= Seq(
+  guice,
+  evolutions,
+  "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.2" % Test,
+  "com.typesafe.play" %% "play-slick" % "3.0.3",
+  "com.typesafe.play" %% "play-slick-evolutions" % "3.0.3",
+  "mysql" % "mysql-connector-java" % "8.0.15",
+  "com.github.tototoshi" %% "slick-joda-mapper" % "2.3.0"
+)
