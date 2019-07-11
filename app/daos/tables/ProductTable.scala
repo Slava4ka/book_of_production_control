@@ -3,7 +3,6 @@ package daos.tables
 import slick.jdbc.MySQLProfile.api._
 import models.Product
 import com.github.tototoshi.slick.MySQLJodaSupport._
-import daos.tables.BaseTable
 
 class ProductTable(tag: Tag) extends BaseTable[Product](tag, "product") {
 
