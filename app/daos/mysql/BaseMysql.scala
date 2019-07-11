@@ -2,6 +2,7 @@ package daos.mysql
 
 import scala.concurrent.Future
 
+import com.github.tototoshi.slick.MySQLJodaSupport._
 import daos.BaseDAO
 import daos.tables.BaseTable
 import models.BaseEntity
@@ -44,7 +45,7 @@ abstract class BaseMysql[T <: BaseTable[E], E <: BaseEntity[E]](clazz: TableQuer
   override def blockOne(id: Long): Future[Int] = {
     val action = ENTITIES.filter(_.id === id)
       .map(entity => (entity.updated, entity.deleted))
-      .updade(DateTime.now, Some(DateTime.now))
+      .update(DateTime.now, Some(DateTime.now))
 
     db.run(action)
   }

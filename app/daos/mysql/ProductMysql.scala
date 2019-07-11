@@ -2,6 +2,7 @@ package daos.mysql
 
 import com.google.inject.Inject
 import daos.ProductDAO
+import models.Product
 import daos.tables.ProductTable
 import play.api.db.slick.DatabaseConfigProvider
 import slick.lifted.TableQuery
